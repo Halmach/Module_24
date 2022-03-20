@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestADONETProject", "TestADONETProject\TestADONETProject.csproj", "{4BE341CD-4C9B-42FD-80B8-DB81C6688603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleADONET", "TestConsoleADONET\TestConsoleADONET.csproj", "{31419950-6117-45E2-AE6D-CCDB459B14F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BE341CD-4C9B-42FD-80B8-DB81C6688603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE341CD-4C9B-42FD-80B8-DB81C6688603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE341CD-4C9B-42FD-80B8-DB81C6688603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE341CD-4C9B-42FD-80B8-DB81C6688603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31419950-6117-45E2-AE6D-CCDB459B14F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31419950-6117-45E2-AE6D-CCDB459B14F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31419950-6117-45E2-AE6D-CCDB459B14F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31419950-6117-45E2-AE6D-CCDB459B14F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {530A8D76-B38B-449F-9A48-7A603159FD89}
+	EndGlobalSection
+EndGlobal
