@@ -54,7 +54,10 @@ namespace TestConsoleADONET
                     }
                 }
 
-                Console.WriteLine();
+                Console.WriteLine("--------------------------------------------");
+
+                foreach (DataRow row in data.Rows)
+                    Console.Write($"{row[data.Columns[0].ColumnName]}\n");
 
             }
             else
