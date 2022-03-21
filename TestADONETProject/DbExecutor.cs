@@ -18,6 +18,11 @@ namespace TestADONETProject
         {
             var selectcommandtext = "select * from " + table;
             var adapter = new SqlDataAdapter(selectcommandtext, connector.GetConnection());
+
+            var ds = new DataSet();
+            adapter.Fill(ds);
+
+            return ds.Tables[0];
         }
     }
 }
