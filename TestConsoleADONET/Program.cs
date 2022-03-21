@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using TestADONETProject;
 
 namespace TestConsoleADONET
 {
@@ -6,7 +8,24 @@ namespace TestConsoleADONET
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+
+            var connector = new MainConnector();
+            var result = connector.ConnectAsync();
+
+            if(result.Result)
+            {
+                Console.WriteLine("Подключено успешно!");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка подключения");
+            }
+        }
+
+        static void ReadFromNetworkUser()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
         }
     }
 }
