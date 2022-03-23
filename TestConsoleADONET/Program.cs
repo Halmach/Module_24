@@ -11,110 +11,75 @@ namespace TestConsoleADONET
         static void Main(string[] args)
         {
 
+            var manager = new Manager();
 
-            var connector = new MainConnector();
-            var result = connector.ConnectAsync();
-            DbExecutor db;
-            string tableName;
+            manager.Connect();
 
-            var data = new DataTable();
+            manager.ShowData();
 
-            //if(result.Result)
+            Console.WriteLine("Введите логин для удаления");
+
+            var deletedRowsNum = manager.DeleteUserByLogin(Console.ReadLine());
+
+            Console.WriteLine("Количество удаленных строк = " + deletedRowsNum);
+
+            manager.Disconnect();
+
+            Console.ReadKey();
+
+
+
+
+
+
+            //var connector = new MainConnector();
+            //var result = connector.ConnectAsync();
+
+            //string tableName = "NetworkUser";
+            //DbExecutor db = new DbExecutor(connector);
+
+            //var data = new DataTable();
+
+
+            //if (result.Result)
             //{
-            //    Console.WriteLine("Подключено успешно!");
+            //    var sqlCommandResult = db.SelectAllbyCommandReader(tableName);
 
-            //    db = new DbExecutor(connector);
+            //    var columnList = new List<string>();
 
-            //    tableName = "NetworkUser";
+            //    for (int i = 0; i < sqlCommandResult.FieldCount; i++)
+            //    {
+            //        var name = sqlCommandResult.GetName(i);
+            //        columnList.Add(name);
+            //    }
 
-            //    Console.WriteLine("Получаем данные таблицы " + tableName);
-
-            //    data = db.SelectAll(tableName);
-
-            //    Console.WriteLine("Количество строк в " + tableName + ": " + data.Rows.Count);
-
-            //    Console.WriteLine("Отключаем БД!");
-            //    connector.DisconnectAsync();
-
-            //    Console.WriteLine("Количество строк в " + tableName + ": " + data.Rows.Count);
-
-
-
+            //    // Отображение столбцов
+            //    for (int i = 0; i < columnList.Count; i++)
+            //    {
+            //        Console.Write($"{columnList[i]}\t");
+            //    }
             //    Console.WriteLine();
 
-
-            //    foreach(DataRow row in data.Rows)
+            //    // Чтение данных
+            //    while (sqlCommandResult.Read())
             //    {
-            //        var cells = row.ItemArray;
-            //        foreach (var cell in cells)
+            //        for (int i = 0; i < columnList.Count; i++)
             //        {
-            //            Console.Write($"{cell}\n");
+            //            var value = sqlCommandResult[columnList[i]];
+            //            Console.Write($"{value}\t");
             //        }
-            //    }
 
-
-            //    Console.WriteLine("--------------------------------------------");
-
-            //    // вывод наименования столбцов
-            //    foreach (DataColumn column in data.Columns)
-            //    {
-            //        Console.Write($"{column.ColumnName}\t");
-            //    }
-
-            //    Console.WriteLine();
-
-            //    foreach (DataRow row in data.Rows)
-            //    {
-            //        for (int i = 0; i < data.Columns.Count; i++)
-            //            Console.Write($"{row[data.Columns[i].ColumnName]}\t");
             //        Console.WriteLine();
             //    }
             //}
-            //else
-            //{
-            //    Console.WriteLine("Ошибка подключения");
-            //}
-
-            if (result.Result)
-            {
-
-                tableName = "NetworkUser";
-                db = new DbExecutor(connector);
-                var sqlCommandResult = db.SelectAllbyCommandReader(tableName);
-
-                var columnList = new List<string>();
-
-                for (int i = 0; i < sqlCommandResult.FieldCount; i++)
-                {
-                    var name = sqlCommandResult.GetName(i);
-                    columnList.Add(name);
-                }
-
-                // Отображение столбцов
-                for (int i = 0; i < columnList.Count; i++)
-                {
-                    Console.Write($"{columnList[i]}\t");
-                }
-                Console.WriteLine();
-
-                // Чтение данных
-                while (sqlCommandResult.Read())
-                {
-                    for (int i = 0; i < columnList.Count; i++)
-                    {
-                        var value = sqlCommandResult[columnList[i]];
-                        Console.Write($"{value}\t");
-                    }
-
-                    Console.WriteLine();
-                }
-            }
         }
 
         static void ReadFromNetworkUser()
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
         }
+
+
 
        
     }
