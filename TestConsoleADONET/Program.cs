@@ -115,5 +115,7 @@ namespace TestConsoleADONET
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
         }
+
+       
     }
 }

@@ -40,5 +40,16 @@ namespace TestADONETProject
 
             return null;
         }
+
+        public void task_24_4_5(string table, string column, string value)
+        {
+            var commandText = "delete from " + table + " where " + column + " = '" + value + "';";
+            var command = new SqlCommand
+            {
+                CommandType = CommandType.Text,
+                CommandText = commandText,
+                Connection = connector.GetConnection()
+            };
+        }
     }
 }
