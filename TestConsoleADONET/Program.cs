@@ -23,6 +23,10 @@ namespace TestConsoleADONET
 
             Console.WriteLine("Количество удаленных строк = " + deletedRowsNum);
 
+            Console.WriteLine();
+
+            manager.ShowData();
+
             manager.Disconnect();
 
             Console.ReadKey();
