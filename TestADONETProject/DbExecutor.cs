@@ -41,7 +41,8 @@ namespace TestADONETProject
             return null;
         }
 
-        public void task_24_4_5(string table, string column, string value)
+        // Задание 24.4.5
+        public int DeleteFromTable(string table, string column, string value)
         {
             var commandText = "delete from " + table + " where " + column + " = '" + value + "';";
             var command = new SqlCommand
@@ -50,6 +51,14 @@ namespace TestADONETProject
                 CommandText = commandText,
                 Connection = connector.GetConnection()
             };
+
+            return command.ExecuteNonQuery();
+        }
+
+        // Задание 24.4.6
+        public int DeleteByColumn(string table, string column, string value)
+        {
+            return DeleteFromTable(table, column, value);
         }
     }
 }
