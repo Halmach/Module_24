@@ -24,5 +24,21 @@ namespace TestADONETProject
 
             return ds.Tables[0];
         }
+
+        public SqlDataReader SelectAllbyCommandReader(string table)
+        {
+            var command = new SqlCommand
+            {
+                CommandType = CommandType.Text,
+                CommandText = "select * from " + table,
+                Connection = connector.GetConnection()
+            };
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows) return reader;
+
+            return null;
+        }
     }
 }
