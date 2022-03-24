@@ -87,5 +87,10 @@ namespace TestADONETProject
         {
             dbExecutor.ExecuteStroredProcedure("AddingUserProc", name, login);
         }
+
+        public void UpdateUserByLogin(string newName, string Login)
+        {
+            dbExecutor.UpdateByColumn(newName, Login);
+        }
     }
 }

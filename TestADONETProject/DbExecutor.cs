@@ -76,5 +76,20 @@ namespace TestADONETProject
 
             return command.ExecuteNonQuery();
         }
+
+        public int UpdateByColumn(string newName, string login)
+        {
+            var command = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "UpdateUserByLoginProc",
+                Connection = connector.GetConnection()
+            };
+
+            command.Parameters.Add(new SqlParameter("@UserName",newName));
+            command.Parameters.Add(new SqlParameter("@Login", login));
+
+            return command.ExecuteNonQuery();
+        }
     }
 }
