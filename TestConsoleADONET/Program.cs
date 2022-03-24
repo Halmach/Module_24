@@ -12,10 +12,27 @@ namespace TestConsoleADONET
         static void Main(string[] args)
         {
             manager.Connect();
+            string currentCommand = string.Empty;
+            do
+            {
+                Console.WriteLine("Список команд для работы консоли:");
+                Console.WriteLine(Commands.stop + ": прекращение работы");
+                Console.WriteLine(Commands.add + ": добавление данных");
+                Console.WriteLine(Commands.delete + ": удаление данных");
+                Console.WriteLine(Commands.update + ": обновление данных");
+                Console.WriteLine(Commands.show + ": просмотр данных");
 
-            Delete();
-            Create();
-            Update();
+                currentCommand = Console.ReadLine().Trim().ToLower();
+
+                switch(currentCommand)
+                {
+                    case nameof(Commands.add): Create(); break;
+                    case nameof(Commands.show): manager.ShowData(); break;
+                    case nameof(Commands.update): Update(); break;
+                    case nameof(Commands.delete): Delete(); break;
+                }
+
+            } while (currentCommand != nameof(Commands.stop));
 
             manager.Disconnect();
             Console.ReadKey();
