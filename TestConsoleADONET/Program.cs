@@ -27,6 +27,20 @@ namespace TestConsoleADONET
 
             manager.ShowData();
 
+            Console.WriteLine("Введите имя пользователя:");
+
+            var name = Console.ReadLine();
+
+            Console.WriteLine("Введите логин:");
+
+            var login = Console.ReadLine();
+
+            manager.AddingUser(name, login);
+
+            Console.WriteLine();
+
+            manager.ShowData();
+
             manager.Disconnect();
 
             Console.ReadKey();

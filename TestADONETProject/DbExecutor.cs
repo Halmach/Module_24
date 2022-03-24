@@ -61,7 +61,7 @@ namespace TestADONETProject
             return DeleteFromTable(table, column, value);
         }
 
-        public void ExecuteStroredProcedure(string stroredProcedureName)
+        public int ExecuteStroredProcedure(string stroredProcedureName, string name, string login)
         {
             var command = new SqlCommand
             { 
@@ -69,6 +69,12 @@ namespace TestADONETProject
                  CommandText = stroredProcedureName,
                  Connection = connector.GetConnection()
             };
+
+            // передача параметров в хранимую процедуру
+            command.Parameters.Add(new SqlParameter("@Name", name));
+            command.Parameters.Add(new SqlParameter("@Login", login));
+
+            return command.ExecuteNonQuery();
         }
     }
 }

@@ -83,9 +83,9 @@ namespace TestADONETProject
             return dbExecutor.DeleteByColumn(userTable.Name, userTable.ImportantField, value);
         }
 
-        public void AddingUserProc()
+        public void AddingUser(string name, string login)
         {
-            dbExecutor.ExecuteStroredProcedure("AddingUserProc");
+            dbExecutor.ExecuteStroredProcedure("AddingUserProc", name, login);
         }
     }
 }
