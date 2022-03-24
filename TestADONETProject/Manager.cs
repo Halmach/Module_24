@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -80,6 +81,11 @@ namespace TestADONETProject
         public int DeleteUserByLogin(string value)
         {
             return dbExecutor.DeleteByColumn(userTable.Name, userTable.ImportantField, value);
+        }
+
+        public void AddingUserProc()
+        {
+            dbExecutor.ExecuteStroredProcedure("AddingUserProc");
         }
     }
 }

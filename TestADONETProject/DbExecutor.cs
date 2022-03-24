@@ -60,5 +60,15 @@ namespace TestADONETProject
         {
             return DeleteFromTable(table, column, value);
         }
+
+        public void ExecuteStroredProcedure(string stroredProcedureName)
+        {
+            var command = new SqlCommand
+            { 
+                 CommandType = CommandType.StoredProcedure,
+                 CommandText = stroredProcedureName,
+                 Connection = connector.GetConnection()
+            };
+        }
     }
 }
